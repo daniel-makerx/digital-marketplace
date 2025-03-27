@@ -13,6 +13,7 @@ from algosdk.error import AlgodHTTPError
 
 from smart_contracts.artifacts.digital_marketplace.digital_marketplace_client import (
     AcceptBidArgs,
+    Bid,
     DigitalMarketplaceClient,
     SaleKey,
 )
@@ -29,9 +30,7 @@ def test_pass_noop_accept_bid(
 ) -> None:
     sale_key = SaleKey(owner=first_seller.address, asset=asset_to_sell)
 
-    assert dm_client.state.box.sales.get_value(sale_key).bid == [
-        [first_bidder.address, cst.AMOUNT_TO_BID.micro_algo]
-    ]
+    assert dm_client.state.box.sales.get_value(sale_key).bid == Bid(first_bidder.address, cst.AMOUNT_TO_BID.micro_algo)
     deposited_before_call = dm_client.state.local_state(first_seller.address).deposited
     asa_balance_before_call = helpers.asa_amount(
         algorand_client,
@@ -48,8 +47,7 @@ def test_pass_noop_accept_bid(
     with pytest.raises(AlgodHTTPError, match="box not found"):
         _ = dm_client.state.box.sales.get_value(sale_key)
     assert (
-        dm_client.state.local_state(first_seller.address).deposited
-        - deposited_before_call
+        dm_client.state.local_state(first_seller.address).deposited - deposited_before_call
         == (cst.AMOUNT_TO_BID + cst.SALES_BOX_MBR).micro_algo
     )
     assert (
@@ -75,9 +73,7 @@ def test_pass_opt_in_accept_bid(
 
     sale_key = SaleKey(owner=first_seller.address, asset=asset_to_sell)
 
-    assert dm_client.state.box.sales.get_value(sale_key).bid == [
-        [first_bidder.address, cst.AMOUNT_TO_BID.micro_algo]
-    ]
+    assert dm_client.state.box.sales.get_value(sale_key).bid == Bid(first_bidder.address, cst.AMOUNT_TO_BID.micro_algo)
     asa_balance_before_call = helpers.asa_amount(
         algorand_client,
         first_bidder.address,

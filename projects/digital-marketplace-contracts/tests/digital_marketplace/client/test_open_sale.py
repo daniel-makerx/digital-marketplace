@@ -24,6 +24,7 @@ from smart_contracts.artifacts.digital_marketplace.digital_marketplace_client im
     SaleKey,
     SponsorAssetArgs,
 )
+from tests.digital_marketplace.client.consts import EMPTY_BID
 
 
 def test_fail_diff_sender_open_sale(
@@ -152,9 +153,7 @@ def test_pass_open_sale(
     algorand_client: AlgorandClient,
     first_seller: SigningAccount,
 ) -> None:
-    mbr_before_call = algorand_client.account.get_information(
-        dm_client.app_address
-    ).min_balance
+    mbr_before_call = algorand_client.account.get_information(dm_client.app_address).min_balance
     asa_balance_before_call = helpers.asa_amount(
         algorand_client,
         dm_client.app_address,
@@ -186,17 +185,15 @@ def test_pass_open_sale(
     # The created box does not contain a bid yet.
     # The mbr does not raise as much as the subtracted amount from the deposit.
     assert (
-        algorand_client.account.get_information(dm_client.app_address).min_balance
-        - mbr_before_call
+        algorand_client.account.get_information(dm_client.app_address).min_balance - mbr_before_call
         == cst.SALES_BOX_BASE_MBR
     )
     assert asa_balance - asa_balance_before_call == cst.ASA_AMOUNT_TO_SELL
     assert (
-        dm_client.state.local_state(first_seller.address).deposited
-        - deposited_before_call
+        dm_client.state.local_state(first_seller.address).deposited - deposited_before_call
         == -cst.SALES_BOX_MBR.micro_algo
     )
 
-    assert dm_client.state.box.sales.get_value(
-        SaleKey(owner=first_seller.address, asset=asset_to_sell)
-    ) == Sale(cst.ASA_AMOUNT_TO_SELL, cst.COST_TO_BUY.micro_algo, [])
+    assert dm_client.state.box.sales.get_value(SaleKey(owner=first_seller.address, asset=asset_to_sell)) == Sale(
+        cst.ASA_AMOUNT_TO_SELL, cst.COST_TO_BUY.micro_algo, EMPTY_BID
+    )

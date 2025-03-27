@@ -45,14 +45,9 @@ class Sale(arc4.Struct, frozen=True):
     cost: arc4.UInt64
     # Ideally we'd like to write:
     #  bid: Optional[Bid]
-    # Since there's no Optional in Algorand Python, we use a DynamicArray that
-    #  is either empty or contains exactly one element.
-    # We need to be the ones that enforce this constraint.
-    # TODO: have either a boolean flag to determine if a bid has been set
-    #       or use the truthiness of bid.bidder
-    #       this should be more efficient than a dynamic array and makes the whole type statically size
-    #       the down side is that all of the bytes for the Bid member will be allocated before anything is set
-    bid: arc4.DynamicArray[Bid]
+    # Since there's no Optional in Algorand Python, we use the truthiness of bid.bidder
+    # to know if a bid is present
+    bid: Bid
 
 
 class PlacedBid(arc4.Struct, frozen=True):
@@ -113,7 +108,9 @@ class DigitalMarketplace(ARC4Contract):
 
         self.deposited[Txn.sender] -= sales_box_mbr(self.sales.key_prefix.length)
 
-        self.sales[sale_key] = Sale(arc4.UInt64(asset_deposit.asset_amount), cost, arc4.DynamicArray[Bid]())
+        self.sales[sale_key] = Sale(
+            arc4.UInt64(asset_deposit.asset_amount), cost, Bid(bidder=arc4.Address(), amount=arc4.UInt64(0))
+        )
 
     @abimethod(allow_actions=["NoOp", "OptIn"])
     def close_sale(self, asset: Asset) -> None:
@@ -155,13 +152,11 @@ class DigitalMarketplace(ARC4Contract):
 
         assert arc4_sender != sale_key.owner, err.SELLER_CANT_BE_BIDDER
 
-        maybe_best_bid = self.sales[sale_key].bid.copy()
-        if maybe_best_bid:
-            assert maybe_best_bid[0].amount.native < new_bid_amount.native, err.WORSE_BID
+        sale = self.sales[sale_key]
+        if sale.bid.bidder:
+            assert sale.bid.amount.native < new_bid_amount.native, err.WORSE_BID
 
-            self.sales[sale_key].bid[0] = new_bid
-        else:
-            self.sales[sale_key].bid.append(new_bid)
+        self.sales[sale_key] = sale._replace(bid=new_bid)
 
         new_placed_bid = PlacedBid(sale_key, new_bid_amount)
         placed_bids, placed_bids_exist = self.placed_bids.maybe(Txn.sender)
@@ -180,11 +175,8 @@ class DigitalMarketplace(ARC4Contract):
 
     @subroutine
     def is_encumbered(self, bid: PlacedBid) -> bool:
-        return (
-            self.sales.maybe(bid.sale_key)[1]
-            and bool(self.sales.maybe(bid.sale_key)[0].bid)
-            and self.sales.maybe(bid.sale_key)[0].bid[0].bidder.native == Txn.sender
-        )
+        sale, sale_exists = self.sales.maybe(bid.sale_key)
+        return sale_exists and bool(sale.bid.bidder) and sale.bid.bidder == Txn.sender
 
     @abimethod(allow_actions=["NoOp", "OptIn"])
     def claim_unencumbered_bids(self) -> None:
@@ -222,8 +214,8 @@ class DigitalMarketplace(ARC4Contract):
     @abimethod(allow_actions=["NoOp", "OptIn"])
     def accept_bid(self, asset: arc4.UInt64) -> None:
         sale_key = SaleKey(owner=arc4.Address(Txn.sender), asset=asset)
-        sale = self.sales[sale_key].copy()
-        current_best_bid = sale.bid[0]
+        sale = self.sales[sale_key]
+        current_best_bid = sale.bid
 
         self.deposited[Txn.sender] = (
             self.deposited.get(Txn.sender, default=UInt64(0))
