@@ -25,6 +25,9 @@ from smart_contracts.digital_marketplace.subroutines import (
 )
 
 
+# TODO: convert these structs to NamedTuples instead once tuples can be serialized directly
+#       this should result in cleaner code as native types such as Asset, Account and UInt64 can be used directly
+#       in the mean time the frozen=True property makes this type immutable and usable within an ImmutableArray
 class SaleKey(arc4.Struct, frozen=True):
     owner: arc4.Address
     asset: arc4.UInt64
@@ -43,6 +46,10 @@ class Sale(arc4.Struct, frozen=True):
     # Since there's no Optional in Algorand Python, we use a DynamicArray that
     #  is either empty or contains exactly one element.
     # We need to be the ones that enforce this constraint.
+    # TODO: have either a boolean flag to determine if a bid has been set
+    #       or use the truthiness of bid.bidder
+    #       this should be more efficient than a dynamic array and makes the whole type statically size
+    #       the down side is that all of the bytes for the Bid member will be allocated before anything is set
     bid: arc4.DynamicArray[Bid]
 
 
@@ -60,6 +67,8 @@ class DigitalMarketplace(ARC4Contract):
     def __init__(self) -> None:
         self.deposited = LocalState(UInt64)
 
+        # TODO: once puyapy supports serialization of native tuples
+        #       then NamedTuples can be used here instead of ARC-4 types
         self.sales = BoxMap(SaleKey, Sale)
         self.placed_bids = BoxMap(Account, ImmutableArray[PlacedBid])
 
@@ -77,15 +86,11 @@ class DigitalMarketplace(ARC4Contract):
 
             itxn.Payment(receiver=Txn.sender, amount=amount.native).submit()
         else:
-            itxn.Payment(
-                receiver=Txn.sender, amount=self.deposited[Txn.sender]
-            ).submit()
+            itxn.Payment(receiver=Txn.sender, amount=self.deposited[Txn.sender]).submit()
 
     @abimethod
     def sponsor_asset(self, asset: Asset) -> None:
-        assert not Global.current_application_address.is_opted_in(
-            asset
-        ), err.ALREADY_OPTED_IN
+        assert not Global.current_application_address.is_opted_in(asset), err.ALREADY_OPTED_IN
         assert asset.clawback == Global.zero_address, err.CLAWBACK_ASA
 
         self.deposited[Txn.sender] -= Global.asset_opt_in_min_balance
@@ -97,22 +102,16 @@ class DigitalMarketplace(ARC4Contract):
         ).submit()
 
     @abimethod
-    def open_sale(
-        self, asset_deposit: gtxn.AssetTransferTransaction, cost: arc4.UInt64
-    ) -> None:
+    def open_sale(self, asset_deposit: gtxn.AssetTransferTransaction, cost: arc4.UInt64) -> None:
         assert asset_deposit.sender == Txn.sender, err.DIFFERENT_SENDER
         assert asset_deposit.asset_receiver == Global.current_application_address, err.WRONG_RECEIVER
 
-        sale_key = SaleKey(
-            arc4.Address(Txn.sender), arc4.UInt64(asset_deposit.xfer_asset.id)
-        )
+        sale_key = SaleKey(arc4.Address(Txn.sender), arc4.UInt64(asset_deposit.xfer_asset.id))
         assert not self.sales.maybe(sale_key)[1], err.SALE_ALREADY_EXISTS
 
         self.deposited[Txn.sender] -= sales_box_mbr(self.sales.key_prefix.length)
 
-        self.sales[sale_key] = Sale(
-            arc4.UInt64(asset_deposit.asset_amount), cost, arc4.DynamicArray[Bid]()
-        )
+        self.sales[sale_key] = Sale(arc4.UInt64(asset_deposit.asset_amount), cost, arc4.DynamicArray[Bid]())
 
     @abimethod(allow_actions=["NoOp", "OptIn"])
     def close_sale(self, asset: Asset) -> None:
@@ -124,9 +123,9 @@ class DigitalMarketplace(ARC4Contract):
             asset_amount=self.sales[sale_key].amount.native,
         ).submit()
 
-        self.deposited[Txn.sender] = self.deposited.get(
-            Txn.sender, default=UInt64(0)
-        ) + sales_box_mbr(self.sales.key_prefix.length)
+        self.deposited[Txn.sender] = self.deposited.get(Txn.sender, default=UInt64(0)) + sales_box_mbr(
+            self.sales.key_prefix.length
+        )
 
         del self.sales[sale_key]
 
@@ -135,9 +134,9 @@ class DigitalMarketplace(ARC4Contract):
         assert Txn.sender != sale_key.owner.native, err.SELLER_CANT_BE_BUYER
 
         self.deposited[Txn.sender] -= self.sales[sale_key].cost.native
-        self.deposited[sale_key.owner.native] += self.sales[
-            sale_key
-        ].cost.native + sales_box_mbr(self.sales.key_prefix.length)
+        self.deposited[sale_key.owner.native] += self.sales[sale_key].cost.native + sales_box_mbr(
+            self.sales.key_prefix.length
+        )
 
         itxn.AssetTransfer(
             xfer_asset=sale_key.asset.native,
@@ -216,9 +215,7 @@ class DigitalMarketplace(ARC4Contract):
             if not self.is_encumbered(placed_bids[i]):
                 unencumbered_bids += placed_bids[i].bid_amount.native
 
-        return UnencumberedBidsReceipt(
-            arc4.UInt64(total_bids), arc4.UInt64(unencumbered_bids)
-        )
+        return UnencumberedBidsReceipt(arc4.UInt64(total_bids), arc4.UInt64(unencumbered_bids))
 
     @abimethod(allow_actions=["NoOp", "OptIn"])
     def accept_bid(self, asset: arc4.UInt64) -> None:
