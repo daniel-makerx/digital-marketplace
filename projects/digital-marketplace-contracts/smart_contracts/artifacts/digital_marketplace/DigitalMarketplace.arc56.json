@@ -301,7 +301,7 @@
                     "prefix": "c2FsZXM="
                 },
                 "placed_bids": {
-                    "keyType": "address",
+                    "keyType": "AVMBytes",
                     "valueType": "((address,uint64),uint64)[]",
                     "prefix": "cGxhY2VkX2JpZHM="
                 }
