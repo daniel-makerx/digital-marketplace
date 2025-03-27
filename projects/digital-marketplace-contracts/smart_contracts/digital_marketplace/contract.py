@@ -30,12 +30,12 @@ class SaleKey(arc4.Struct, frozen=True):
     asset: arc4.UInt64
 
 
-class Bid(arc4.Struct):
+class Bid(arc4.Struct, frozen=True):
     bidder: arc4.Address
     amount: arc4.UInt64
 
 
-class Sale(arc4.Struct):
+class Sale(arc4.Struct, frozen=True):
     amount: arc4.UInt64
     cost: arc4.UInt64
     # Ideally we'd like to write:
@@ -166,9 +166,9 @@ class DigitalMarketplace(ARC4Contract):
                 maybe_best_bid[0].amount.native < new_bid_amount.native
             ), err.WORSE_BID
 
-            self.sales[sale_key].bid[0] = new_bid.copy()
+            self.sales[sale_key].bid[0] = new_bid
         else:
-            self.sales[sale_key].bid.append(new_bid.copy())
+            self.sales[sale_key].bid.append(new_bid)
 
         new_placed_bid = PlacedBid(sale_key, new_bid_amount)
         placed_bids, placed_bids_exist = self.placed_bids.maybe(Txn.sender)
@@ -232,7 +232,7 @@ class DigitalMarketplace(ARC4Contract):
     def accept_bid(self, asset: arc4.UInt64) -> None:
         sale_key = SaleKey(owner=arc4.Address(Txn.sender), asset=asset)
         sale = self.sales[sale_key].copy()
-        current_best_bid = sale.bid[0].copy()
+        current_best_bid = sale.bid[0]
 
         self.deposited[Txn.sender] = (
             self.deposited.get(Txn.sender, default=UInt64(0))
