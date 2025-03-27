@@ -3,6 +3,7 @@ from algopy import (
     Asset,
     BoxMap,
     Global,
+    ImmutableArray,
     LocalState,
     OnCompleteAction,
     Txn,
@@ -23,7 +24,7 @@ from smart_contracts.digital_marketplace.subroutines import (
 )
 
 
-class SaleKey(arc4.Struct):
+class SaleKey(arc4.Struct, frozen=True):
     owner: arc4.Address
     asset: arc4.UInt64
 
@@ -44,7 +45,7 @@ class Sale(arc4.Struct):
     bid: arc4.DynamicArray[Bid]
 
 
-class PlacedBid(arc4.Struct):
+class PlacedBid(arc4.Struct, frozen=True):
     sale_key: SaleKey
     bid_amount: arc4.UInt64
 
@@ -59,7 +60,7 @@ class DigitalMarketplace(ARC4Contract):
         self.deposited = LocalState(UInt64)
 
         self.sales = BoxMap(SaleKey, Sale)
-        self.placed_bids = BoxMap(arc4.Address, arc4.DynamicArray[PlacedBid])
+        self.placed_bids = BoxMap(arc4.Address, ImmutableArray[PlacedBid])
 
     @abimethod(allow_actions=["NoOp", "OptIn"])
     def deposit(self, payment: gtxn.PaymentTransaction) -> None:
@@ -168,23 +169,18 @@ class DigitalMarketplace(ARC4Contract):
         else:
             self.sales[sale_key].bid.append(new_bid.copy())
 
-        new_placed_bid = PlacedBid(sale_key.copy(), new_bid_amount)
-        if self.placed_bids.maybe(arc4_sender)[1]:
-            found, index = find_placed_bid(
-                self.placed_bids[arc4_sender].copy(), sale_key.copy()
-            )
+        new_placed_bid = PlacedBid(sale_key, new_bid_amount)
+        placed_bids, placed_bids_exist = self.placed_bids.maybe(arc4_sender)
+        if placed_bids_exist:
+            found, index = find_placed_bid(placed_bids, sale_key)
             if found:
-                self.deposited[Txn.sender] += self.placed_bids[arc4_sender][
-                    index
-                ].bid_amount.native
-                self.placed_bids[arc4_sender][index] = new_placed_bid.copy()
+                self.deposited[Txn.sender] += placed_bids[index].bid_amount.native
+                self.placed_bids[arc4_sender] = placed_bids.replace(index, new_placed_bid)
             else:
-                self.placed_bids[arc4_sender].append(new_placed_bid.copy())
+                self.placed_bids[arc4_sender] = placed_bids.append(new_placed_bid)
         else:
             self.deposited[Txn.sender] -= placed_bids_box_mbr()
-            self.placed_bids[arc4_sender] = arc4.DynamicArray[PlacedBid](
-                new_placed_bid.copy()
-            )
+            self.placed_bids[arc4_sender] = ImmutableArray(new_placed_bid)
 
         self.deposited[Txn.sender] -= new_bid_amount.native
 
@@ -200,17 +196,17 @@ class DigitalMarketplace(ARC4Contract):
     def claim_unencumbered_bids(self) -> None:
         self.deposited[Txn.sender] = self.deposited.get(Txn.sender, UInt64(0))
 
-        placed_bids = self.placed_bids[arc4.Address(Txn.sender)].copy()
-        encumbered_placed_bids = arc4.DynamicArray[PlacedBid]()
+        placed_bids = self.placed_bids[arc4.Address(Txn.sender)]
+        encumbered_placed_bids = ImmutableArray[PlacedBid]()
 
-        for i in urange(placed_bids.length):
-            if self.is_encumbered(placed_bids[i].copy()):
-                encumbered_placed_bids.append(placed_bids[i].copy())
+        for placed_bid in placed_bids:
+            if self.is_encumbered(placed_bid):
+                encumbered_placed_bids = encumbered_placed_bids.append(placed_bid)
             else:
-                self.deposited[Txn.sender] += placed_bids[i].bid_amount.native
+                self.deposited[Txn.sender] += placed_bid.bid_amount.native
 
         if encumbered_placed_bids:
-            self.placed_bids[arc4.Address(Txn.sender)] = encumbered_placed_bids.copy()
+            self.placed_bids[arc4.Address(Txn.sender)] = encumbered_placed_bids
         else:
             self.deposited[Txn.sender] += placed_bids_box_mbr()
             del self.placed_bids[arc4.Address(Txn.sender)]
@@ -220,11 +216,11 @@ class DigitalMarketplace(ARC4Contract):
         total_bids = UInt64(0)
         unencumbered_bids = UInt64(0)
 
-        placed_bids = self.placed_bids[arc4.Address(Txn.sender)].copy()
+        placed_bids = self.placed_bids[arc4.Address(Txn.sender)]
 
         for i in urange(placed_bids.length):
             total_bids += placed_bids[i].bid_amount.native
-            if not self.is_encumbered(placed_bids[i].copy()):
+            if not self.is_encumbered(placed_bids[i]):
                 unencumbered_bids += placed_bids[i].bid_amount.native
 
         return UnencumberedBidsReceipt(

@@ -1,4 +1,4 @@
-from algopy import UInt64, arc4, subroutine, urange
+from algopy import UInt64, ImmutableArray, subroutine, uenumerate
 
 from smart_contracts.digital_marketplace.contract import PlacedBid, SaleKey
 
@@ -40,9 +40,9 @@ def placed_bids_box_mbr() -> UInt64:
 
 @subroutine
 def find_placed_bid(
-    placed_bids: arc4.DynamicArray[PlacedBid], key: SaleKey
+    placed_bids: ImmutableArray[PlacedBid], key: SaleKey
 ) -> tuple[bool, UInt64]:
-    for i in urange(placed_bids.length):
-        if placed_bids[i].sale_key == key:
+    for i, placed_bid in uenumerate(placed_bids):
+        if placed_bid.sale_key == key:
             return True, i
     return False, UInt64(0)
