@@ -301,7 +301,7 @@
                     "prefix": "c2FsZXM="
                 },
                 "placed_bids": {
-                    "keyType": "address",
+                    "keyType": "AVMBytes",
                     "valueType": "((address,uint64),uint64)[]",
                     "prefix": "cGxhY2VkX2JpZHM="
                 }
@@ -507,8 +507,8 @@
         "compiler": "puya",
         "compilerVersion": {
             "major": 4,
-            "minor": 5,
-            "patch": 3
+            "minor": 6,
+            "patch": 0
         }
     },
     "events": [],
