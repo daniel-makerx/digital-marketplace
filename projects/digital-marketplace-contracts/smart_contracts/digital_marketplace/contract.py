@@ -66,13 +66,9 @@ class DigitalMarketplace(ARC4Contract):
     @abimethod(allow_actions=["NoOp", "OptIn"])
     def deposit(self, payment: gtxn.PaymentTransaction) -> None:
         assert payment.sender == Txn.sender, err.DIFFERENT_SENDER
-        assert (
-            payment.receiver == Global.current_application_address
-        ), err.WRONG_RECEIVER
+        assert payment.receiver == Global.current_application_address, err.WRONG_RECEIVER
 
-        self.deposited[Txn.sender] = (
-            self.deposited.get(Txn.sender, default=UInt64(0)) + payment.amount
-        )
+        self.deposited[Txn.sender] = self.deposited.get(Txn.sender, default=UInt64(0)) + payment.amount
 
     @abimethod(allow_actions=["NoOp", "CloseOut"])
     def withdraw(self, amount: arc4.UInt64) -> None:
@@ -105,9 +101,7 @@ class DigitalMarketplace(ARC4Contract):
         self, asset_deposit: gtxn.AssetTransferTransaction, cost: arc4.UInt64
     ) -> None:
         assert asset_deposit.sender == Txn.sender, err.DIFFERENT_SENDER
-        assert (
-            asset_deposit.asset_receiver == Global.current_application_address
-        ), err.WRONG_RECEIVER
+        assert asset_deposit.asset_receiver == Global.current_application_address, err.WRONG_RECEIVER
 
         sale_key = SaleKey(
             arc4.Address(Txn.sender), arc4.UInt64(asset_deposit.xfer_asset.id)
@@ -162,9 +156,7 @@ class DigitalMarketplace(ARC4Contract):
 
         maybe_best_bid = self.sales[sale_key].bid.copy()
         if maybe_best_bid:
-            assert (
-                maybe_best_bid[0].amount.native < new_bid_amount.native
-            ), err.WORSE_BID
+            assert maybe_best_bid[0].amount.native < new_bid_amount.native, err.WORSE_BID
 
             self.sales[sale_key].bid[0] = new_bid
         else:
