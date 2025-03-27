@@ -104,7 +104,7 @@ class DigitalMarketplace(ARC4Contract):
         assert asset_deposit.asset_receiver == Global.current_application_address, err.WRONG_RECEIVER
 
         sale_key = SaleKey(arc4.Address(Txn.sender), arc4.UInt64(asset_deposit.xfer_asset.id))
-        assert not self.sales.maybe(sale_key)[1], err.SALE_ALREADY_EXISTS
+        assert sale_key not in self.sales, err.SALE_ALREADY_EXISTS
 
         self.deposited[Txn.sender] -= sales_box_mbr(self.sales.key_prefix.length)
 
