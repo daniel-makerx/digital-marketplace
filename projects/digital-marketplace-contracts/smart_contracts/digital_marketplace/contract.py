@@ -109,7 +109,9 @@ class DigitalMarketplace(ARC4Contract):
         self.deposited[Txn.sender] -= sales_box_mbr(self.sales.key_prefix.length)
 
         self.sales[sale_key] = Sale(
-            arc4.UInt64(asset_deposit.asset_amount), cost, Bid(bidder=arc4.Address(), amount=arc4.UInt64(0))
+            arc4.UInt64(asset_deposit.asset_amount),
+            cost,
+            Bid(bidder=arc4.Address(), amount=arc4.UInt64(0)),
         )
 
     @abimethod(allow_actions=["NoOp", "OptIn"])
