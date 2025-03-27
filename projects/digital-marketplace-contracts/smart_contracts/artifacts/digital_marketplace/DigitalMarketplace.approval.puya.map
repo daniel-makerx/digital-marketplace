@@ -4,7 +4,7 @@
     "../../digital_marketplace/contract.py",
     "../../digital_marketplace/subroutines.py"
   ],
-  "mappings": "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",
+  "mappings": "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",
   "op_pc_offset": 0,
   "pc_events": {
     "1": {
@@ -2434,7 +2434,7 @@
       ]
     },
     "560": {
-      "op": "box_get",
+      "op": "box_len",
       "defined_out": [
         "maybe_exists%0#0",
         "maybe_value%0#0",
@@ -9207,13 +9207,13 @@
     "1282": {
       "op": "bytec_3 // \"\"",
       "stack_out": [
-        "tmp%5#0"
+        "tmp%3#0"
       ]
     },
     "1283": {
       "op": "dup",
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9"
       ]
     },
@@ -9235,7 +9235,7 @@
         "unencumbered_bids#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
@@ -9251,7 +9251,7 @@
         "unencumbered_bids#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
@@ -9262,57 +9262,57 @@
       "op": "box_get",
       "defined_out": [
         "maybe_exists%0#0",
-        "placed_bids#0",
+        "maybe_value%0#0",
         "total_bids#0",
         "unencumbered_bids#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
+        "maybe_value%0#0",
         "maybe_exists%0#0"
       ]
     },
     "1291": {
       "op": "swap",
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
         "maybe_exists%0#0",
-        "placed_bids#0"
+        "maybe_value%0#0"
       ]
     },
     "1292": {
       "op": "dup",
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
         "maybe_exists%0#0",
-        "placed_bids#0",
-        "placed_bids#0 (copy)"
+        "maybe_value%0#0",
+        "maybe_value%0#0 (copy)"
       ]
     },
     "1293": {
       "op": "uncover 2",
       "defined_out": [
         "maybe_exists%0#0",
-        "placed_bids#0",
+        "maybe_value%0#0",
         "total_bids#0",
         "unencumbered_bids#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "placed_bids#0",
+        "maybe_value%0#0",
+        "maybe_value%0#0",
         "maybe_exists%0#0"
       ]
     },
@@ -9320,185 +9320,185 @@
       "error": "check self.placed_bids entry exists",
       "op": "assert // check self.placed_bids entry exists",
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "placed_bids#0"
+        "maybe_value%0#0",
+        "maybe_value%0#0"
       ]
     },
     "1296": {
       "op": "intc_0 // 0",
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "placed_bids#0",
+        "maybe_value%0#0",
+        "maybe_value%0#0",
         "0"
       ]
     },
     "1297": {
       "op": "extract_uint16",
       "defined_out": [
-        "placed_bids#0",
-        "tmp%2#0",
+        "array_length%0#0",
+        "maybe_value%0#0",
         "total_bids#0",
         "unencumbered_bids#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0"
+        "maybe_value%0#0",
+        "array_length%0#0"
       ]
     },
     "1298": {
       "op": "intc_0 // 0",
       "defined_out": [
-        "i#0",
-        "placed_bids#0",
-        "tmp%2#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "maybe_value%0#0",
         "total_bids#0",
         "unencumbered_bids#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0"
       ]
     },
     "1299": {
       "block": "get_total_and_unencumbered_bids_for_header@1",
       "stack_in": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0"
       ],
       "op": "frame_dig 6",
       "defined_out": [
-        "i#0"
+        "item_index_internal%0#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
-        "i#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "item_index_internal%0#0"
       ]
     },
     "1301": {
       "op": "frame_dig 5",
       "defined_out": [
-        "i#0",
-        "tmp%2#0"
+        "array_length%0#0",
+        "item_index_internal%0#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
-        "i#0",
-        "tmp%2#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "item_index_internal%0#0",
+        "array_length%0#0"
       ]
     },
     "1303": {
       "op": "<",
       "defined_out": [
+        "array_length%0#0",
         "continue_looping%0#0",
-        "i#0",
-        "tmp%2#0"
+        "item_index_internal%0#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
         "continue_looping%0#0"
       ]
     },
     "1304": {
       "op": "bz get_total_and_unencumbered_bids_after_for@6",
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0"
       ]
     },
     "1307": {
       "op": "frame_dig 4",
       "defined_out": [
-        "i#0",
-        "placed_bids#0",
-        "tmp%2#0"
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "maybe_value%0#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
-        "placed_bids#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "maybe_value%0#0"
       ]
     },
     "1309": {
       "op": "extract 2 0",
       "defined_out": [
         "array_head_and_tail%0#0",
-        "i#0",
-        "placed_bids#0",
-        "tmp%2#0"
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "maybe_value%0#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
         "array_head_and_tail%0#0"
       ]
     },
     "1312": {
       "op": "frame_dig 6",
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
         "array_head_and_tail%0#0",
-        "i#0"
+        "item_index_internal%0#0"
       ]
     },
     "1314": {
@@ -9506,20 +9506,20 @@
       "defined_out": [
         "48",
         "array_head_and_tail%0#0",
-        "i#0",
-        "placed_bids#0",
-        "tmp%2#0"
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "maybe_value%0#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
         "array_head_and_tail%0#0",
-        "i#0",
+        "item_index_internal%0#0",
         "48"
       ]
     },
@@ -9527,19 +9527,19 @@
       "op": "*",
       "defined_out": [
         "array_head_and_tail%0#0",
-        "i#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
         "item_offset%0#0",
-        "placed_bids#0",
-        "tmp%2#0"
+        "maybe_value%0#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
         "array_head_and_tail%0#0",
         "item_offset%0#0"
       ]
@@ -9547,13 +9547,13 @@
     "1316": {
       "op": "intc_2 // 48",
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
         "array_head_and_tail%0#0",
         "item_offset%0#0",
         "48"
@@ -9563,344 +9563,344 @@
       "error": "Index access is out of bounds",
       "op": "extract3 // on error: Index access is out of bounds",
       "defined_out": [
-        "i#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "tmp%3#0"
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "maybe_value%0#0",
+        "placed_bid#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
-        "tmp%3#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "placed_bid#0"
       ]
     },
     "1318": {
       "op": "dup",
       "defined_out": [
-        "i#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "tmp%3#0",
-        "tmp%3#0 (copy)"
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "maybe_value%0#0",
+        "placed_bid#0",
+        "placed_bid#0 (copy)"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
-        "tmp%3#0",
-        "tmp%3#0 (copy)"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "placed_bid#0",
+        "placed_bid#0 (copy)"
       ]
     },
     "1319": {
       "op": "pushint 40 // 40",
       "defined_out": [
         "40",
-        "i#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "tmp%3#0",
-        "tmp%3#0 (copy)"
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "maybe_value%0#0",
+        "placed_bid#0",
+        "placed_bid#0 (copy)"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
-        "tmp%3#0",
-        "tmp%3#0 (copy)",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "placed_bid#0",
+        "placed_bid#0 (copy)",
         "40"
       ]
     },
     "1321": {
       "op": "extract_uint64",
       "defined_out": [
-        "i#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "tmp%3#0",
-        "tmp%5#0"
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "maybe_value%0#0",
+        "placed_bid#0",
+        "tmp%3#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
-        "tmp%3#0",
-        "tmp%5#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "placed_bid#0",
+        "tmp%3#0"
       ]
     },
     "1322": {
       "op": "dup",
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "placed_bid#0",
         "tmp%3#0",
-        "tmp%5#0",
-        "tmp%5#0"
+        "tmp%3#0"
       ]
     },
     "1323": {
       "op": "frame_bury 0",
       "defined_out": [
-        "i#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "tmp%3#0",
-        "tmp%5#0"
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "maybe_value%0#0",
+        "placed_bid#0",
+        "tmp%3#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
-        "tmp%3#0",
-        "tmp%5#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "placed_bid#0",
+        "tmp%3#0"
       ]
     },
     "1325": {
       "op": "frame_dig 2",
       "defined_out": [
-        "i#0",
-        "placed_bids#0",
-        "tmp%2#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "maybe_value%0#0",
+        "placed_bid#0",
         "tmp%3#0",
-        "tmp%5#0",
         "total_bids#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "placed_bid#0",
         "tmp%3#0",
-        "tmp%5#0",
         "total_bids#0"
       ]
     },
     "1327": {
       "op": "+",
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
-        "tmp%3#0",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "placed_bid#0",
         "total_bids#0"
       ]
     },
     "1328": {
       "op": "frame_bury 2",
       "defined_out": [
-        "i#0",
-        "placed_bids#0",
-        "tmp%2#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "maybe_value%0#0",
+        "placed_bid#0",
         "tmp%3#0",
-        "tmp%5#0",
         "total_bids#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
-        "tmp%3#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "placed_bid#0"
       ]
     },
     "1330": {
       "callsub": "smart_contracts.digital_marketplace.contract.DigitalMarketplace.is_encumbered",
       "op": "callsub is_encumbered",
       "defined_out": [
-        "i#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "tmp%5#0",
-        "tmp%7#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "maybe_value%0#0",
+        "tmp%3#0",
+        "tmp%4#0",
         "total_bids#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
-        "tmp%7#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "tmp%4#0"
       ]
     },
     "1333": {
       "op": "frame_dig 3",
       "defined_out": [
-        "i#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "tmp%5#0",
-        "tmp%7#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "maybe_value%0#0",
+        "tmp%3#0",
+        "tmp%4#0",
         "total_bids#0",
         "unencumbered_bids#9"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
-        "tmp%7#0",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "tmp%4#0",
         "unencumbered_bids#9"
       ]
     },
     "1335": {
       "op": "frame_bury 1",
       "defined_out": [
-        "i#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "tmp%5#0",
-        "tmp%7#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "maybe_value%0#0",
+        "tmp%3#0",
+        "tmp%4#0",
         "total_bids#0",
         "unencumbered_bids#9"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
-        "tmp%7#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "tmp%4#0"
       ]
     },
     "1337": {
       "op": "bnz get_total_and_unencumbered_bids_after_if_else@4",
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0"
       ]
     },
     "1340": {
       "op": "frame_dig 3",
       "defined_out": [
-        "i#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "tmp%5#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "maybe_value%0#0",
+        "tmp%3#0",
         "total_bids#0",
         "unencumbered_bids#0",
         "unencumbered_bids#9"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
         "unencumbered_bids#0"
       ]
     },
     "1342": {
       "op": "frame_dig 0",
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
         "unencumbered_bids#0",
-        "tmp%5#0"
+        "tmp%3#0"
       ]
     },
     "1344": {
       "op": "+",
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
         "unencumbered_bids#9"
       ]
     },
     "1345": {
       "op": "frame_bury 1",
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0"
       ]
     },
     "1347": {
       "block": "get_total_and_unencumbered_bids_after_if_else@4",
       "stack_in": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0"
       ],
       "op": "frame_dig 1",
       "defined_out": [
         "unencumbered_bids#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
         "unencumbered_bids#0"
       ]
     },
@@ -9910,74 +9910,78 @@
         "unencumbered_bids#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0"
       ]
     },
     "1351": {
       "op": "frame_dig 6",
       "defined_out": [
-        "i#0",
+        "item_index_internal%0#0",
         "unencumbered_bids#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
-        "i#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "item_index_internal%0#0"
       ]
     },
     "1353": {
       "op": "intc_1 // 1",
       "defined_out": [
         "1",
-        "i#0",
+        "item_index_internal%0#0",
         "unencumbered_bids#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
-        "i#0",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "item_index_internal%0#0",
         "1"
       ]
     },
     "1354": {
       "op": "+",
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
-        "i#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
+        "item_index_internal%0#0"
       ]
     },
     "1355": {
       "op": "frame_bury 6",
+      "defined_out": [
+        "item_index_internal%0#0",
+        "unencumbered_bids#0"
+      ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0"
       ]
     },
     "1357": {
@@ -9986,26 +9990,26 @@
     "1360": {
       "block": "get_total_and_unencumbered_bids_after_for@6",
       "stack_in": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0"
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0"
       ],
       "op": "frame_dig 2",
       "defined_out": [
         "total_bids#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
         "total_bids#0"
       ]
     },
@@ -10016,13 +10020,13 @@
         "unencumbered_bids#0"
       ],
       "stack_out": [
-        "tmp%5#0",
+        "tmp%3#0",
         "unencumbered_bids#9",
         "total_bids#0",
         "unencumbered_bids#0",
-        "placed_bids#0",
-        "tmp%2#0",
-        "i#0",
+        "maybe_value%0#0",
+        "array_length%0#0",
+        "item_index_internal%0#0",
         "total_bids#0",
         "unencumbered_bids#0"
       ]
