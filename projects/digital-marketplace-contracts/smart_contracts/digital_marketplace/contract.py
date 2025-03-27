@@ -202,12 +202,10 @@ class DigitalMarketplace(ARC4Contract):
         total_bids = UInt64(0)
         unencumbered_bids = UInt64(0)
 
-        placed_bids = self.placed_bids[Txn.sender]
-
-        for i in urange(placed_bids.length):
-            total_bids += placed_bids[i].bid_amount.native
-            if not self.is_encumbered(placed_bids[i]):
-                unencumbered_bids += placed_bids[i].bid_amount.native
+        for placed_bid in self.placed_bids[Txn.sender]:
+            total_bids += placed_bid.bid_amount.native
+            if not self.is_encumbered(placed_bid):
+                unencumbered_bids += placed_bid.bid_amount.native
 
         return UnencumberedBidsReceipt(total_bids, unencumbered_bids)
 
