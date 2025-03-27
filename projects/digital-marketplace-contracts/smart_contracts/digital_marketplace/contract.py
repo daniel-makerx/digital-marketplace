@@ -1,3 +1,5 @@
+import typing
+
 from algopy import (
     Account,
     ARC4Contract,
@@ -58,9 +60,9 @@ class PlacedBid(arc4.Struct, frozen=True):
     bid_amount: arc4.UInt64
 
 
-class UnencumberedBidsReceipt(arc4.Struct):
-    total_bids: arc4.UInt64
-    unencumbered_bids: arc4.UInt64
+class UnencumberedBidsReceipt(typing.NamedTuple):
+    total_bids: UInt64
+    unencumbered_bids: UInt64
 
 
 class DigitalMarketplace(ARC4Contract):
@@ -215,7 +217,7 @@ class DigitalMarketplace(ARC4Contract):
             if not self.is_encumbered(placed_bids[i]):
                 unencumbered_bids += placed_bids[i].bid_amount.native
 
-        return UnencumberedBidsReceipt(arc4.UInt64(total_bids), arc4.UInt64(unencumbered_bids))
+        return UnencumberedBidsReceipt(total_bids, unencumbered_bids)
 
     @abimethod(allow_actions=["NoOp", "OptIn"])
     def accept_bid(self, asset: arc4.UInt64) -> None:
